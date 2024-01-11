@@ -2,17 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/yourusername/yourrepository.git']]])
-            }
-        }
         stage('Build') {
             steps {
-                // Your build commands go here
+                echo 'Building...'
+                // Add your build commands here
             }
         }
-        // Add more stages as needed
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add your test commands here
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add your deployment commands here
+            }
+        }
     }
 }
 
